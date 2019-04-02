@@ -1,0 +1,32 @@
+<%= form_with(model: user_file_mapping, local: true) do |form| %>
+  <% if user_file_mapping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_file_mapping.errors.count, "error") %> prohibited this user_file_mapping from being saved:</h2>
+
+      <ul>
+      <% user_file_mapping.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :file_id %>
+    <%= form.number_field :file_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name %>
+    <%= form.text_field :file_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+class UserFileMapping < ApplicationRecord
+end

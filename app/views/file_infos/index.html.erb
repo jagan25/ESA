@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>File Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Checksum</th>
+      <th>Redundant count</th>
+      <th>Parent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @file_infos.each do |file_info| %>
+      <tr>
+        <td><%= file_info.path %></td>
+        <td><%= file_info.checksum %></td>
+        <td><%= file_info.redundant_count %></td>
+        <td><%= file_info.parent_id %></td>
+        <td><%= link_to 'Show', file_info %></td>
+        <td><%= link_to 'Edit', edit_file_info_path(file_info) %></td>
+        <td><%= link_to 'Destroy', file_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New File Info', new_file_info_path %>

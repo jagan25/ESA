@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @file_info.path %>
+</p>
+
+<p>
+  <strong>Checksum:</strong>
+  <%= @file_info.checksum %>
+</p>
+
+<p>
+  <strong>Redundant count:</strong>
+  <%= @file_info.redundant_count %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @file_info.parent_id %>
+</p>
+
+<%= link_to 'Edit', edit_file_info_path(@file_info) %> |
+<%= link_to 'Back', file_infos_path %>
