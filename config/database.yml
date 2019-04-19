@@ -9,14 +9,38 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: srivatsan
-  host: localhost
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: esa
+#   password: esa
+#   socket: /tmp/mysql.sock
 
-development:
-  <<: *default
-  database: test
+# development:
+#   <<: *default
+#   database: esa
+
+
+production:   
+  adapter: mysql2
+  encoding: utf8   
+  database: <%= ENV['RDS_DB_NAME'] %>   
+  username: <%= ENV['RDS_USERNAME'] %>   
+  password: <%= ENV['RDS_PASSWORD'] %>   
+  host: <%= ENV['RDS_HOSTNAME'] %>   
+  port: <%= ENV['RDS_PORT'] %>
+
+
+
+sudo yum update
+sudo yum install -y curl gnupg build-essential
+sudo yum install libpq-dev
+
+//
+
+sudo yum install postgresql-libs
+
+
+if sudo grep -q secure_path /etc/sudoers; then sudo sh -c “echo export rvmsudo_secure_path=1 >> 
+/etc/profile.d/rvm_secure_path.sh”; fi

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_04_02_233445) do
 
-  create_table "file_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "file_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "path"
     t.string "checksum"
     t.integer "redundant_count"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_233445) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "logins", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "logins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_233445) do
     t.index ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true
   end
 
-  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "file_id"
     t.string "name"
     t.integer "user_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_233445) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_file_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "user_file_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "file_id"
     t.integer "user_id"
     t.string "file_name"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_233445) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "name"
     t.string "password"
     t.integer "superuser"
