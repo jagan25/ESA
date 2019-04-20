@@ -59,3 +59,12 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+role :app, %w{deploy_user@ec2-18-212-107-222.compute-1.amazonaws.com}
+role :web, %w{deploy_user@ec2-18-212-107-222.compute-1.amazonaws.com}
+role :db,  %w{deploy_user@ec2-18-212-107-222.compute-1.amazonaws.com}
+set :ssh_options, {
+   keys: %w(/Users/jagan/Desktop/AWS key pair/esa.pem),
+   forward_agent: false,
+   auth_methods: %w(publickey password)
+ }
