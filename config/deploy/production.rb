@@ -60,9 +60,9 @@
 #     # password: "please use keys"
 #   }
 
-role :app, %w{deploy_user@ec2-18-212-107-222.compute-1.amazonaws.com}
-role :web, %w{deploy_user@ec2-18-212-107-222.compute-1.amazonaws.com}
-role :db,  %w{deploy_user@ec2-18-212-107-222.compute-1.amazonaws.com}
+role :app, %w{deploy_user@ec2-3-90-231-45.compute-1.amazonaws.com}
+role :web, %w{deploy_user@ec2-3-90-231-45.compute-1.amazonaws.com}
+role :db,  %w{deploy_user@ec2-3-90-231-45.compute-1.amazonaws.com}
 set :ssh_options, {
    keys: %w(/Users/jagan/Desktop/AWSKEYPAIR/esa.pem),
    forward_agent: false,

@@ -9,17 +9,17 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
-# default: &default
-#   adapter: mysql2
-#   encoding: utf8
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#   username: esa
-#   password: esa
-#   socket: /tmp/mysql.sock
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: esa
+  password: esa
+  socket: /tmp/mysql.sock
 
-# development:
-#   <<: *default
-#   database: esa
+development:
+  <<: *default
+  database: esa
 
 
 production:   
@@ -30,8 +30,6 @@ production:
   password: <%= ENV['RDS_PASSWORD'] %>   
   host: <%= ENV['RDS_HOSTNAME'] %>   
   port: <%= ENV['RDS_PORT'] %>
-
-
 
 
 

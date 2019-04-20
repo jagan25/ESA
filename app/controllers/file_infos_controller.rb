@@ -24,6 +24,16 @@ class FileInfosController < ApplicationController
   # POST /file_infos
   # POST /file_infos.json
   def create
+    i = 0 
+    puts "here"
+    Diffy::Diff.new("Hello how are you\nI'm fine\nThat's great\n", "I'm fine\nThat's swell\n").each do |line|
+      case line
+      when /^\+/ then puts "line #{i} #{line.chomp} added"
+      when /^-/ then puts "line #{i} #{line.chomp} removed"
+      end 
+      i = i + 1
+    end
+
     @file_info = FileInfo.new(file_info_params)
 
     respond_to do |format|
