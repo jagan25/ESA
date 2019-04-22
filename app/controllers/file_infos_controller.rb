@@ -25,14 +25,27 @@ class FileInfosController < ApplicationController
   # POST /file_infos.json
   def create
     i = 0 
-    puts "here"
-    Diffy::Diff.new("Hello how are you\nI'm fine\nThat's great\n", "I'm fine\nThat's swell\n").each do |line|
-      case line
-      when /^\+/ then puts "line #{i} #{line.chomp} added"
-      when /^-/ then puts "line #{i} #{line.chomp} removed"
-      end 
-      i = i + 1
-    end
+    
+    # Diffy::Diff.new("Hello how are you\nI'm fine\nThat's great\n", "I'm fine\nThat's swell\n").each do |line|
+    #   case line
+    #   when /^\+/ then puts "line #{i} #{line.chomp} added"
+    #   when /^-/ then puts "line #{i} #{line.chomp} removed"
+    #   end 
+    #   i = i + 1
+    # end
+    # a = Diffy::Diff.new('/Users/jagan/Downloads/f1.txt', '/Users/jagan/Downloads/f2.txt', :source => 'files').each_chunk.to_a
+    # puts a.inspect
+    #s1 = "The red dog jumped over the hill, followed by the crazy clown."
+    s2 = "The green fox jumped over the mill, followed by the crazy clown. I am here you clowns!!!"
+    s3 = "The green fox jumped over the mill, followed by the crazy clown. I am here you""
+    
+    s2_d_s1 = Fossilize.create(s2, "The red dog jumped over the hill, followed by the crazy clown.")
+    puts s2_d_s1
+
+    puts "Hereeee!!!"
+    puts Fossilize.apply(s2,s2_d_s1)
+
+
 
     @file_info = FileInfo.new(file_info_params)
 
